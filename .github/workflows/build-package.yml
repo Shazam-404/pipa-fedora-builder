@@ -26,9 +26,7 @@ jobs:
       run: docker build . -t 'pipa-fedora-builder'
 
     - name: Build the Fedora image
-    run: |
-      export SYSTEMD_OFFLINE=1
-      docker run --privileged -v "$(pwd)"/images:/build/images -v "/dev:/dev" pipa-fedora-builder
+    run: docker run --privileged -v "$(pwd)"/images:/build/images -v "/dev:/dev" pipa-fedora-builder
 
 
     - name: Get current date
