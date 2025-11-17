@@ -25,8 +25,14 @@ jobs:
     - name: Build the Docker image
       run: docker build . -t 'pipa-fedora-builder'
 
+    - name: Ensure images directory exists
+      run: mkdir -p images
+
     - name: Build the Fedora image
       run: docker run --privileged -v "$(pwd)"/images:/build/images -v "/dev:/dev" pipa-fedora-builder
+
+    - name: Debug: list images
+      run: ls -lR images
 
     - name: Get current date
       id: date
