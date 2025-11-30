@@ -107,7 +107,7 @@ make_image() {
 
     echo "### Creating default user"
     arch-chroot $image_mnt useradd -m -G audio,video,wheel user
-    echo 'user:147147' | arch-chroot $image_mnt chpasswd
+    echo 'shazam:vishnu' | arch-chroot $image_mnt chpasswd
 
     echo -e '\n### Cleanup'
     rm -rf $image_mnt/boot/lost+found/
